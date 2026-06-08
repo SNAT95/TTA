@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | TECQ TITANS AFRICA</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+        .filter-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 30px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            font-weight: 500;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--gradient-gold);
+            color: var(--primary-dark);
+            border-color: transparent;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            cursor: pointer;
+            aspect-ratio: 4/3;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        .gallery-overlay {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            padding: 1.5rem;
+            transition: bottom var(--transition-normal);
+        }
+        .gallery-item:hover .gallery-overlay {
+            bottom: 0;
+        }
+        .gallery-overlay h4 {
+            color: var(--accent-gold);
+            margin-bottom: 0.25rem;
+        }
+        .gallery-overlay p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.95);
+            backdrop-filter: blur(20px);
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 10px;
+        }
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            cursor: pointer;
+            transition: color var(--transition-fast);
+        }
+        .modal-close:hover {
+            color: var(--accent-gold);
+        }
+        .modal-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: white;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="../assets/images/tt.png" alt="TECQ TITANS AFRICA Logo">
+                <span class="logo-text">TECQ<span>TITANS AFRICA</span></span>
+            </div>
+            <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="business-units.html">Ecosystem</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="leadership.html">Leadership</a></li>
+                <li><a href="connect.html">Connect</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <h1>Our <span class="gradient-text">Gallery</span></h1>
+        <p class="tagline">Moments from Our Journey Across Ghana</p>
+        <p style="max-width: 700px; margin: 1rem auto 0; color: var(--text-tertiary);">Capturing the energy, innovation, and community that define TECQ TITANS AFRICA.</p>
+    </section>
+
+    <div class="page-content">
+        <div class="gallery-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="competition">Competitions</button>
+            <button class="filter-btn" data-filter="training">Training</button>
+            <button class="filter-btn" data-filter="events">Events</button>
+            <button class="filter-btn" data-filter="community">Community</button>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid">
+            <div class="gallery-item" data-category="competition" onclick="openModal(this)">
+                <img src="../assets/images/gallery/img1.jpg" alt="TECQ Competition Launch" onerror="this.src='https://placehold.co/600x400/FFD700/0a1628?text=TECQ+Competition'">
+                <div class="gallery-overlay">
+                    <h4>Flagship Competition Launch</h4>
+                    <p>Inaugural TECQ Titans Competition opening ceremony</p>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="training" onclick="openModal(this)">
+                <img src="../assets/images/gallery/img2.jpg" alt="TECQ Academy Training" onerror="this.src='https://placehold.co/600x400/00d4ff/0a1628?text=TECQ+Academy'">
+                <div class="gallery-overlay">
+                    <h4>Academy Training Session</h4>
+                    <p>Students engaged in hands-on coding workshop</p>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="events" onclick="openModal(this)">
+                <img src="../assets/images/gallery/img3.jpg" alt="TECQ Summit" onerror="this.src='https://placehold.co/600x400/1a3a6c/FFD700?text=TECQ+Summit'">
+                <div class="gallery-overlay">
+                    <h4>Annual Tech Summit</h4>
+                    <p>Industry leaders sharing insights at our flagship summit</p>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="events" onclick="openModal(this)">
+                <img src="../assets/images/gallery/img4.jpg" alt="TECQ Awards" onerror="this.src='https://placehold.co/600x400/6b2fa0/FFD700?text=TECQ+Awards'">
+                <div class="gallery-overlay">
+                    <h4>Awards Gala Night</h4>
+                    <p>Celebrating excellence in Ghana's tech ecosystem</p>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="competition" onclick="openModal(this)">
+                <img src="../assets/images/gallery/img5.jpg" alt="TECQ Hackathon" onerror="this.src='https://placehold.co/600x400/00d4ff/0a1628?text=TECQ+Hackathon'">
+                <div class="gallery-overlay">
+                    <h4>24-Hour Hackathon</h4>
+                    <p>Innovators building solutions for local challenges</p>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="community" onclick="openModal(this)">
+                <img src="../assets/images/gallery/img6.jpg" alt="TECQ Community" onerror="this.src='https://placehold.co/600x400/FFD700/0a1628?text=TECQ+Community'">
+                <div class="gallery-overlay">
+                    <h4>Community Outreach</h4>
+                    <p>Bringing tech education to underserved communities</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div class="modal-caption" id="modalCaption"></div>
+    </div>
+
+    <div class="cta-section">
+        <div class="cta-glow"></div>
+        <h2>Want to be Part of Our <span class="gradient-text">Next Chapter</span>?</h2>
+        <p>Join our upcoming events and become part of Ghana's tech revolution.</p>
+        <div class="cta-buttons">
+            <a href="connect.html" class="btn-primary">Get Involved <i class="fas fa-arrow-right"></i></a>
+            <a href="services.html" class="btn-outline">Explore Services</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>TECQ TITANS AFRICA</h4>
+                <p>Ghana's Premier Technology Talent Ecosystem</p>
+                <p>Discover. Develop. Connect. Empower.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="../index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="business-units.html">Ecosystem</a>
+                <a href="services.html">Services</a>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <a href="connect.html">Contact Us</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="leadership.html">Leadership</a>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 TECQ TITANS AFRICA. All rights reserved. | Registered Limited Liability Company, Accra, Ghana</p>
+            <p>Founded by Samuel Nii Ayi Tettey</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        window.addEventListener('load', function() {
+            const loader = document.querySelector('.loader');
+            if (loader) {
+                loader.classList.add('hidden');
+                setTimeout(() => loader.remove(), 500);
+            }
+        });
+
+        function openModal(element) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const modalCaption = document.getElementById('modalCaption');
+            const img = element.querySelector('img');
+            const overlay = element.querySelector('.gallery-overlay');
+            const title = overlay ? overlay.querySelector('h4').textContent : 'Gallery Image';
+
+            modal.style.display = 'block';
+            modalImg.src = img.src;
+            modalCaption.textContent = title;
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                        item.style.animation = 'fadeInUp 0.5s ease';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

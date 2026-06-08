@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Ecosystem | TECQ TITANS AFRICA</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .units-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .unit-card {
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 2rem;
+            transition: all var(--transition-normal);
+        }
+        .unit-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 215, 0, 0.4);
+            box-shadow: var(--shadow-lg);
+        }
+        .unit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        .unit-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-gold);
+        }
+        .unit-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        .unit-features {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+        .unit-features li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.9rem;
+            color: var(--text-tertiary);
+        }
+        .unit-features li:before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent-cyan);
+        }
+        .ecosystem-note {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(0, 229, 255, 0.05));
+            border-radius: 24px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="../assets/images/tt.png" alt="TECQ TITANS AFRICA Logo">
+                <span class="logo-text">TECQ<span>TITANS AFRICA</span></span>
+            </div>
+            <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="business-units.html" class="active">Ecosystem</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="leadership.html">Leadership</a></li>
+                <li><a href="connect.html">Connect</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <h1>Our Business <span class="gradient-text">Ecosystem</span></h1>
+        <p class="tagline">7 Integrated Business Units Powering Africa's Tech Talent Pipeline</p>
+        <p style="max-width: 700px; margin: 1rem auto 0; color: var(--text-tertiary);">A comprehensive ecosystem designed to discover, develop, and deploy technology talent across Ghana and Africa.</p>
+    </section>
+
+    <div class="page-content">
+        <div class="units-grid">
+            <div class="unit-card">
+                <div class="unit-icon"><i class="fas fa-trophy" style="color: var(--accent-gold);"></i></div>
+                <h3>TECQ Titans Competition</h3>
+                <p>Flagship technology competition showcasing Ghana's brightest tech talent across multiple disciplines.</p>
+                <ul class="unit-features">
+                    <li>Annual nationwide competition</li>
+                    <li>Live judging and audience voting</li>
+                    <li>Expert panel evaluations</li>
+                    <li>Substantial prize packages</li>
+                    <li>Media recognition and exposure</li>
+                </ul>
+            </div>
+            <div class="unit-card">
+                <div class="unit-icon"><i class="fas fa-graduation-cap" style="color: var(--accent-cyan);"></i></div>
+                <h3>TECQ Titans Academy</h3>
+                <p>Training and certification hub for IT and digital skills development.</p>
+                <ul class="unit-features">
+                    <li>Software development programs</li>
+                    <li>Cybersecurity certifications</li>
+                    <li>Data science training</li>
+                    <li>Cloud computing courses</li>
+                    <li>Digital marketing mastery</li>
+                </ul>
+            </div>
+            <div class="unit-card">
+                <div class="unit-icon"><i class="fas fa-calendar-alt" style="color: var(--accent-magenta);"></i></div>
+                <h3>TECQ Titans Events</h3>
+                <p>Summits, hackathons, workshops, and exhibitions across Ghana.</p>
+                <ul class="unit-features">
+                    <li>Annual Tech Summit</li>
+                    <li>Quarterly Hackathon Series</li>
+                    <li>Monthly Career Fairs</li>
+                    <li>Industry Networking Events</li>
+                    <li>Regional Outreach Programs</li>
+                </ul>
+            </div>
+            <div class="unit-card">
+                <div class="unit-icon"><i class="fas fa-award" style="color: var(--accent-gold);"></i></div>
+                <h3>TECQ Titans Awards</h3>
+                <p>Annual recognition platform celebrating tech excellence and innovation.</p>
+                <ul class="unit-features">
+                    <li>Best Innovator Award</li>
+                    <li>Rising Star Recognition</li>
+                    <li>Lifetime Achievement Award</li>
+                    <li>Industry Impact Awards</li>
+                    <li>Community Choice Awards</li>
+                </ul>
+            </div>
+            <div class="unit-card">
+                <div class="unit-icon"><i class="fas fa-flask" style="color: var(--accent-cyan);"></i></div>
+                <h3>TECQ Titans Labs</h3>
+                <p>Innovation and incubation hub for startups and prototypes.</p>
+                <ul class="unit-features">
+                    <li>Mentorship programs</li>
+                    <li>Co-working spaces</li>
+                    <li>Prototype funding</li>
+                    <li>Investor connections</li>
+                    <li>Go-to-market support</li>
+                </ul>
+            </div>
+            <div class="unit-card">
+                <div class="unit-icon"><i class="fas fa-users" style="color: var(--accent-gold);"></i></div>
+                <h3>TECQ Titans Network</h3>
+                <p>Professional community and alumni ecosystem connecting talent with opportunities.</p>
+                <ul class="unit-features">
+                    <li>Exclusive networking events</li>
+                    <li>Continuous learning resources</li>
+                    <li>Job placement assistance</li>
+                    <li>Mentorship matching</li>
+                    <li>Alumni-exclusive opportunities</li>
+                </ul>
+            </div>
+            <div class="unit-card">
+                <div class="unit-icon"><i class="fas fa-heart" style="color: var(--accent-magenta);"></i></div>
+                <h3>TECQ Titans Foundation</h3>
+                <p>CSR arm focused on youth empowerment and digital inclusion.</p>
+                <ul class="unit-features">
+                    <li>Scholarship programs</li>
+                    <li>Community lab setups</li>
+                    <li>Free coding workshops</li>
+                    <li>Girls in tech initiatives</li>
+                    <li>Rural digital access</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="ecosystem-note">
+            <i class="fas fa-chart-line" style="font-size: 2rem; color: var(--accent-gold); margin-bottom: 1rem; display: inline-block;"></i>
+            <h3>A Complete Talent Ecosystem</h3>
+            <p>From discovery through development to deployment — our integrated business units work together to create a seamless pipeline for Ghana's technology talent. Each unit operates under the legal framework of TECQ TITANS AFRICA as a registered Limited Liability Company.</p>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <div class="cta-glow"></div>
+        <h2>Ready to be Part of <span class="gradient-text">Africa's</span> Tech Revolution?</h2>
+        <p>Join our ecosystem as a participant, partner, or sponsor.</p>
+        <div class="cta-buttons">
+            <a href="connect.html" class="btn-primary">Partner With Us <i class="fas fa-arrow-right"></i></a>
+            <a href="services.html" class="btn-outline">Explore Services</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>TECQ TITANS AFRICA</h4>
+                <p>Ghana's Premier Technology Talent Ecosystem</p>
+                <p>Discover. Develop. Connect. Empower.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="../index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="business-units.html">Ecosystem</a>
+                <a href="services.html">Services</a>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <a href="connect.html">Contact Us</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="leadership.html">Leadership</a>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 TECQ TITANS AFRICA. All rights reserved. | Registered Limited Liability Company, Accra, Ghana</p>
+            <p>Founded by Samuel Nii Ayi Tettey</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        window.addEventListener('load', function() {
+            const loader = document.querySelector('.loader');
+            if (loader) {
+                loader.classList.add('hidden');
+                setTimeout(() => loader.remove(), 500);
+            }
+        });
+    </script>
+</body>
+</html>
